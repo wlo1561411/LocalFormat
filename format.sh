@@ -8,7 +8,8 @@ git status --porcelain | while read -r line; do
     filename=$(echo "$line" | awk '{print $2}')
     # 檢查文件是否有變更
     if echo "$line" | grep -q -E "^(M|MM|A|AM|R|RM|D|MD)[[:space:]]"; then
-      echo "Changed Swift file: $filename"
+      echo "Format Swift file: $filename"
+      /usr/local/Cellar/swiftformat/0.51.9/bin/swiftformat "$filename"
     fi
   fi
 done
