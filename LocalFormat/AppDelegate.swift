@@ -2,50 +2,64 @@ import Cocoa
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-  @IBOutlet weak var menu: NSMenu!
+    @IBOutlet weak var menu: NSMenu!
 
-  var window: NSWindow!
+    var window: NSWindow!
 
-  let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
-  func applicationDidFinishLaunching(_: Notification) {
-    let storyboard = NSStoryboard(name: "Main", bundle: nil)
-    guard let viewController = storyboard.instantiateController(withIdentifier: "ViewController") as? ViewController else {
-      fatalError("Unable to instantiate ViewController from the Main storyboard")
+    func applicationDidFinishLaunching(_: Notification) {
+        setup()
+        openWindow()
     }
 
-    window = NSWindow(
-      contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-      styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-      backing: .buffered, defer: false)
-    window.center()
-    window.title = "Local Format"
-    window.setFrameAutosaveName("Main Window")
-    window.contentView = viewController.view
-    window.makeKeyAndOrderFront(nil)
+    func setup() {
+        setButtonImage(loading: false)
+        statusItem.menu = menu
+    }
 
-    let button = statusItem.button
-    let image = NSImage(systemSymbolName: "play.fill", accessibilityDescription: nil)
-    button?.image = image
+    func openWindow() {
+        let windowController = WindowController()
+        windowController.showWindow(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
 
-    statusItem.menu = menu
-  }
+    func setButtonImage(loading: Bool) {
+        statusItem.button?.image = .init(
+            systemSymbolName: loading ? "water.waves" : "play.fill",
+            accessibilityDescription: nil)
+    }
 
-  @IBAction
-  func format(_: NSMenuItem) {
-    try? Formatter.shared.findChangedSwiftFilesAndFormat()
-  }
+    @IBAction
+    func addPath(_: NSMenuItem) {
+        openWindow()
+    }
 
-  @IBAction
-  func quit(_: NSMenuItem) {
-    NSApplication.shared.terminate(self)
-  }
+    @IBAction
+    func format(_: NSMenuItem) {
+        do {
+            setButtonImage(loading: true)
+            try Entity.shared
+                .findChangedSwiftFilesAndFormat(completion: { [unowned self] _ in
+                    self.setButtonImage(loading: false)
+                })
+        }
+        catch {
+            self.setButtonImage(loading: false)
+            print(error)
+        }
+    }
 
-  func applicationWillTerminate(_: Notification) {
-    // Insert code here to tear down your application
-  }
+    @IBAction
+    func quit(_: NSMenuItem) {
+        NSApplication.shared.terminate(self)
+    }
 
-  func applicationSupportsSecureRestorableState(_: NSApplication) -> Bool {
-    true
-  }
+    func applicationWillTerminate(_: Notification) {
+        // Insert code here to tear down your application
+    }
+
+    func applicationSupportsSecureRestorableState(_: NSApplication) -> Bool {
+        true
+    }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -684,6 +684,12 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="Ceh-de-ASc">
                     <items>
+                        <menuItem title="Open" id="AOo-5q-3vF">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="addPath:" target="Voe-Tx-rLC" id="tr4-CD-1nx"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Format" id="mbI-Lw-mwc">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
@@ -731,7 +737,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="AddPath:" target="XfG-lQ-9wD" id="P1d-Eo-PzI"/>
+                                            <action selector="AddPath:" target="XfG-lQ-9wD" id="GJX-53-ar5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -762,6 +768,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSAddTemplate" width="14" height="13"/>
+        <image name="NSAddTemplate" width="18" height="17"/>
     </resources>
 </document>

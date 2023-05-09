@@ -14,7 +14,7 @@
 		FF4A1EFD2A0948810011F51D /* LocalFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A1EFC2A0948810011F51D /* LocalFormatTests.swift */; };
 		FF4A1F072A0948810011F51D /* LocalFormatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A1F062A0948810011F51D /* LocalFormatUITests.swift */; };
 		FF4A1F092A0948810011F51D /* LocalFormatUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A1F082A0948810011F51D /* LocalFormatUITestsLaunchTests.swift */; };
-		FF95264F2A09724A00B78919 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95264E2A09724A00B78919 /* Formatter.swift */; };
+		FF95264F2A09724A00B78919 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95264E2A09724A00B78919 /* Entity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 		FF4A1F062A0948810011F51D /* LocalFormatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFormatUITests.swift; sourceTree = "<group>"; };
 		FF4A1F082A0948810011F51D /* LocalFormatUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFormatUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF95264D2A096D8800B78919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		FF95264E2A09724A00B78919 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		FF95264E2A09724A00B78919 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 				FF4A1EEE2A0948800011F51D /* Assets.xcassets */,
 				FF4A1EF02A0948800011F51D /* Main.storyboard */,
 				FF4A1EF32A0948800011F51D /* LocalFormat.entitlements */,
-				FF95264E2A09724A00B78919 /* Formatter.swift */,
+				FF95264E2A09724A00B78919 /* Entity.swift */,
 			);
 			path = LocalFormat;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 			files = (
 				FF4A1EED2A09487A0011F51D /* ViewController.swift in Sources */,
 				FF4A1EEB2A09487A0011F51D /* AppDelegate.swift in Sources */,
-				FF95264F2A09724A00B78919 /* Formatter.swift in Sources */,
+				FF95264F2A09724A00B78919 /* Entity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +435,7 @@
 				DEVELOPMENT_TEAM = NPGZC3NCFH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocalFormat/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -465,6 +466,7 @@
 				DEVELOPMENT_TEAM = NPGZC3NCFH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocalFormat/Info.plist;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
